@@ -1,0 +1,67 @@
+body {
+    background-color: rgb(5, 12, 26);
+    color: white;
+    margin: 0;
+}
+
+header{
+    height: 40px;
+}
+
+nav{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(41, 102, 143);
+    height: 40px;
+}
+
+h1{
+    position: absolute;
+    top: -2%;
+}
+
+h3{
+    display: flex;
+    justify-content: center;
+}
+
+input{
+    position: absolute;
+    left: 44%
+}
+
+#botones{
+    display: flex;
+    justify-content: center;
+    padding-top: 2%;
+}
+
+#botones button:not(:last-child) {
+    margin-right: 10px; /* Ajusta el valor según el espacio deseado */
+}
+
+.client-table {
+    width: 100%; /* Hacer que la tabla ocupe todo el ancho del contenedor */
+    border-collapse: collapse; /* Colapsar los bordes de las celdas para un aspecto más limpio */
+    text-align: center; /* Centrar el contenido de la tabla y las celdas */
+  }
+  
+  .client-table th,
+  .client-table td {
+    padding: 10px; /* Agregar espaciado interno para las celdas */
+    border: 1px solid #ccc; /* Agregar bordes a las celdas */
+}
+
+button{
+    background-color: rgb(41, 102, 143);
+    border: none;
+    width: 200px;
+    height: 30px;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+button:hover{
+    background-color: rgb(136, 200, 240);
+}

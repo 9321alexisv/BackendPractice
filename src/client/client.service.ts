@@ -72,7 +72,7 @@ export class ClientService {
         nombre: clientBody.nombre,
         direccion: clientBody.direccion,
     };
-
+    
     // Agregar el nuevo cliente a la lista de clientes
     this.clients.push(newClient);
 
