@@ -37,20 +37,22 @@ export class ClientService {
             throw new NotFoundException(`Client with id ${id} does not exist`);
         }
 
-        //Logica para actualizar
+        client.nombre = clientBody.nombre || client.nombre;
+        client.direccion = clientBody.direccion || client.direccion;
 
         return { status: 'cliente actualizado' };
     }
 
     deleteClient(id) {
 
-        const client = this.clients.find(c => c.id === id);
+        const clientIndex = this.clients.findIndex(c => c.id === id);
 
-        if (!client) {
+        if (clientIndex === -1) {
             throw new NotFoundException(`Client with id ${id} does not exist`);
         }
 
         //Logica para eliminar
+        this.clients.splice(clientIndex, 1);
 
         return { status: 'cliente eliminado' };
     }
@@ -58,13 +60,22 @@ export class ClientService {
     createClient(clientBody) {
         //Validaciones
 
-        const client = this.clients.find(c => c.id === clientBody.id);
+        const existingClient = this.clients.find(c => c.id === clientBody.id);
 
-        if (client) {
+        if (existingClient) {
             throw new NotFoundException(`Client with id ${clientBody.id} already exist`);
         }
 
-        //Logica para crear el cliente
+        // Crear un nuevo cliente con los datos proporcionados en el body
+        const newClient = {
+        id: clientBody.id, // Asegúrate de proporcionar el ID en el body
+        nombre: clientBody.nombre,
+        direccion: clientBody.direccion,
+    };
+
+    // Agregar el nuevo cliente a la lista de clientes
+    this.clients.push(newClient);
+
         return { status: 'cliente creado' };
     }
 }
